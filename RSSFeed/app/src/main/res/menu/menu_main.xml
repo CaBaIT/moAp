@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.cabait.rssfeed.MainActivity">
+    <item
+        android:id="@+id/changeurl"
+        android:orderInCategory="100"
+        android:title="Change URL"
+        app:showAsAction="never" />
+</menu>
