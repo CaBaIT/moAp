@@ -52,6 +52,8 @@ public class MainActivityFragment extends Fragment {
 
             new GetFeed(view).execute(url);
 
+
+
         if (url == "" || url == null || url.isEmpty())
         {
             //Create progamming textview for EmptyView

@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements MainActivityFragment.OnItemSelectedListener, AddFeedFragment.OnURLChangedListener  {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityFragm
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setLogo(R.mipmap.ic_launcher);
+        toolbar.setTitle("RSS Reader");
         if (savedInstanceState == null) {
             MainActivityFragment firstFragment = new MainActivityFragment();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
