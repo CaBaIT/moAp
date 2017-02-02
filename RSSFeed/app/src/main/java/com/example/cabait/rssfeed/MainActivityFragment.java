@@ -61,9 +61,10 @@ public class MainActivityFragment extends Fragment {
 
         if (url == "" || url == null || url.isEmpty())
         {
+            view.findViewById(R.id.imageView).setVisibility(View.VISIBLE);
             //Create progamming textview for EmptyView
             TextView tvEmpty = new TextView(getContext());
-            String emptyString = "Please enter URL";
+            String emptyString = "Please enter a URL";
             tvEmpty.setText(emptyString);
             //Allignment to horizantal und vertical to MATCH_PARENT
             tvEmpty.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
@@ -81,7 +82,7 @@ public class MainActivityFragment extends Fragment {
         {
             //Create progamming textview for EmptyView
             TextView tvEmpty = new TextView(getContext());
-            String emptyString = "no news read";
+            String emptyString = "No news read";
             tvEmpty.setText(emptyString);
             //Allignment to horizantal und vertical to MATCH_PARENT
             tvEmpty.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
