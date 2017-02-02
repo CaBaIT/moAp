@@ -1,14 +1,12 @@
 package com.example.cabait.rssfeed;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements MainActivityFragment.OnItemSelectedListener, AddFeedFragment.OnURLChangedListener  {
     @Override
@@ -54,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityFragm
             return true;
         }
 
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -72,7 +71,9 @@ public class MainActivity extends AppCompatActivity implements MainActivityFragm
     @Override
     public void onURLChange(String url) {
         MainActivityFragment mainActivityFragment= new MainActivityFragment();
-        mainActivityFragment.setUrl(url);
+        DataBaseHelper db = DataBaseHelper.getInstance(this);
+        db.addUrl(url);
+        //mainActivityFragment.setUrl(url);
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.frameLayout,mainActivityFragment)

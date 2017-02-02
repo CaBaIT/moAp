@@ -23,7 +23,7 @@ public class MainActivityFragment extends Fragment {
     private OnItemSelectedListener onItemSelectedListener;
     //http://rss.kicker.de/team/scfreiburg
     //http://rss.nytimes.com/services/xml/rss/nyt/Politics.xml
-    String url="http://rss.nytimes.com/services/xml/rss/nyt/Politics.xml";
+    String url;
 
     public void setUrl(String url) {
         this.url = url;
@@ -41,6 +41,11 @@ public class MainActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         final ListView listView= (ListView) view.findViewById(R.id.listView);
+        DataBaseHelper db = DataBaseHelper.getInstance(getContext());
+        if(db.getCursor()!=null){
+            url=db.getUrl(db.getCursor().getCount());
+        }
+
         listView.setOnItemClickListener(new ListView.OnItemClickListener(){
                 @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -58,7 +63,7 @@ public class MainActivityFragment extends Fragment {
         {
             //Create progamming textview for EmptyView
             TextView tvEmpty = new TextView(getContext());
-            String emptyString = "enter URL";
+            String emptyString = "Please enter URL";
             tvEmpty.setText(emptyString);
             //Allignment to horizantal und vertical to MATCH_PARENT
             tvEmpty.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));

@@ -40,8 +40,8 @@ public class AddFeedFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                String test =editText.getText().toString();
-                onURLChangedListener.onURLChange(test);
+                String url =editText.getText().toString();
+                onURLChangedListener.onURLChange(url);
                 getFragmentManager()
                         .beginTransaction()
                         .remove(AddFeedFragment.this)
